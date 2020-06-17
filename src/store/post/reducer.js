@@ -5,6 +5,9 @@ export const reducer = (state = initialState, action) => {
     case "FETCH_ALL_POSTS": {
       return action.payload;
     }
+    case "ADD_POST": {
+      return [...state, action.payload];
+    }
     default:
       return state;
   }

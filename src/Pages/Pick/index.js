@@ -2,8 +2,11 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+
 import { fetchAllPosts } from "../../store/post/actions";
 import { selectPosts } from "../../store/post/selectors";
+
+import Post from "../../Components/Post";
 
 export default function Pick() {
   const allPosts = useSelector(selectPosts);
@@ -16,22 +19,18 @@ export default function Pick() {
   if (!allPosts) {
     return <div>Loading...</div>;
   }
-  console.log("all Posts:", allPosts);
 
-  //   const render = () => {
-  //     return (
-  //       <Container>
-  //         {allPosts.map((post) => {
-  //           return <Row key={post.id}>{post.title}</Row>;
-  //         })}
-  //       </Container>
-  //     );
-  //   };
+  function notifyMe() {}
+
   return (
     <>
       <Container>
         {allPosts.map((post) => {
-          return <Row key={post.id}>{post.title}</Row>;
+          return (
+            <Row key={post.id}>
+              <Post {...post} />
+            </Row>
+          );
         })}
       </Container>
     </>
