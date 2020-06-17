@@ -14,3 +14,43 @@ export const fetchAllPosts = () => async (dispatch, getState) => {
     console.log(error);
   }
 };
+
+export const addPost = (post) => {
+  return {
+    type: "ADD_POST",
+    payload: post,
+  };
+};
+
+export const submitPost = (
+  title,
+  description,
+  imageUrl,
+  startTime,
+  endTime
+) => async (dispatch, getState) => {
+  const { id, token } = getState().user;
+
+  try {
+    const response = await axios.post(
+      `${apiUrl}/posts`,
+      {
+        title,
+        description,
+        imageUrl,
+        startTime,
+        endTime,
+        userId: id,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    console.log("response:", response);
+    dispatch(addPost(response.data.newPost));
+  } catch (error) {
+    console.log(error);
+  }
+};

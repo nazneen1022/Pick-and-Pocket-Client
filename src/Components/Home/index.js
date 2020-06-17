@@ -7,7 +7,6 @@ import Container from "react-bootstrap/Container";
 import HomeApp from "./HomeApp";
 
 import { selectToken, selectUser } from "../../store/user/selectors";
-import "./Home.css";
 
 export default function Home() {
   const token = useSelector(selectToken);
