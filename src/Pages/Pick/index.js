@@ -20,8 +20,6 @@ export default function Pick() {
     return <div>Loading...</div>;
   }
 
-  function notifyMe() {}
-
   return (
     <>
       <Container>

@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import { useDispatch } from "react-redux";
 import moment from "moment";
 
@@ -10,20 +12,30 @@ import Col from "react-bootstrap/Col";
 import { submitPost } from "../../store/post/actions";
 
 export default function PostWork() {
-  const now = moment();
+  //const now = moment();
+  const today = new Date();
   const dispatch = useDispatch();
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [imageUrl, setImageUrl] = useState("");
-  const [date, setDate] = useState(now.format("YYYY-MM-DD"));
-  const [fromTime, setFromTime] = useState(now.format("HH:mm"));
-  const [toTime, setToTime] = useState("");
+  //const [myDate, setDate] = useState(now.format("YYYY-MM-DD"));
+  const [myDate, setDate] = useState(today);
+  const [fromTime, setFromTime] = useState(today);
+  const [toTime, setToTime] = useState();
 
   const postForm = (event) => {
     event.preventDefault();
-    const startTime = `${date} ${fromTime}`;
-    const endTime = `${date} ${toTime}`;
+    console.log("Nazneen:", myDate, fromTime, toTime);
+
+    const formattedDate = moment(myDate).format("YYYY-MM-DD");
+    const startTime = `${moment(myDate).format("YYYY-MM-DD")} ${moment(
+      fromTime
+    ).format("HH:mm")}`;
+    const endTime = `${moment(myDate).format("YYYY-MM-DD")} ${moment(
+      toTime
+    ).format("HH:mm")}`;
+    console.log("Nazneen:", formattedDate, startTime, endTime);
     dispatch(submitPost(title, description, imageUrl, startTime, endTime));
   };
 
@@ -37,8 +49,8 @@ export default function PostWork() {
             <Form.Control
               value={title}
               onChange={(event) => setTitle(event.target.value)}
-              type="email"
-              placeholder="Enter title"
+              type="text"
+              placeholder="Enter title.."
               required
             />
           </Form.Group>
@@ -46,9 +58,10 @@ export default function PostWork() {
           <Form.Group controlId="formBasicDescription">
             <Form.Label>Description : </Form.Label>
             <Form.Control
+              as="textarea"
+              rows="5"
               value={description}
               onChange={(event) => setDescription(event.target.value)}
-              type="text"
               placeholder="Enter description here.."
               required
             />
@@ -68,26 +81,39 @@ export default function PostWork() {
           <Form.Row>
             <Form.Group as={Col} controlId="formBasicDate">
               <Form.Label>Date</Form.Label>
-              <Form.Control
-                type="date"
-                value={date}
-                onChange={(event) => setDate(event.target.value)}
+
+              <DatePicker
+                selected={myDate}
+                onChange={(date) => setDate(date)}
+                name="startDate"
+                dateFormat="MM/dd/yyyy"
               />
             </Form.Group>
 
             <Form.Group as={Col} controlId="formBasicFromTime">
               <Form.Label>From Time </Form.Label>
-              <Form.Control
-                type="text"
-                value={fromTime}
-                onChange={(event) => setFromTime(event.target.value)}
+
+              <DatePicker
+                selected={fromTime}
+                onChange={(date) => setFromTime(date)}
+                showTimeSelect
+                showTimeSelectOnly
+                timeIntervals={15}
+                timeCaption="Time"
+                dateFormat="h:mm aa"
               />
             </Form.Group>
+
             <Form.Group as={Col} controlId="formGridToTime">
               <Form.Label>To Time </Form.Label>
-              <Form.Control
-                value={toTime}
-                onChange={(event) => setToTime(event.target.value)}
+              <DatePicker
+                selected={toTime}
+                onChange={(date) => setToTime(date)}
+                showTimeSelect
+                showTimeSelectOnly
+                timeIntervals={15}
+                timeCaption="Time"
+                dateFormat="h:mm aa"
               />
             </Form.Group>
           </Form.Row>
