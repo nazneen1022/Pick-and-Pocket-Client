@@ -22,15 +22,21 @@ export default function Pick() {
 
   return (
     <>
-      <Container>
-        {allPosts.map((post) => {
-          return (
-            <Row key={post.id}>
-              <Post {...post} />
-            </Row>
-          );
-        })}
-      </Container>
+      <div>
+        <Container>
+          {allPosts.map((post) => {
+            return (
+              <Row style={{ backgroundColor: "orange" }} key={post.id}>
+                <Post
+                  {...post}
+                  button1Text={"View Location"}
+                  button2Text={"Email "}
+                />
+              </Row>
+            );
+          })}
+        </Container>
+      </div>
     </>
   );
 }

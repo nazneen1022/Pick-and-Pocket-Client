@@ -1,12 +1,6 @@
 import { apiUrl } from "../../Config/constants";
 import axios from "axios";
 import { selectToken } from "./selectors";
-// import {
-//   appLoading,
-//   appDoneLoading,
-//   showMessageWithTimeout,
-//   setMessage,
-// } from "../appState/actions";
 
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const TOKEN_STILL_VALID = "TOKEN_STILL_VALID";

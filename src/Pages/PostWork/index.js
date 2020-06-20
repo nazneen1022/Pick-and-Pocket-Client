@@ -8,8 +8,10 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
+import Image from "react-bootstrap/Image";
 
 import { submitPost } from "../../store/post/actions";
+import dummyImage from "../../Images/dummyImage.png";
 
 export default function PostWork() {
   //const now = moment();
@@ -18,7 +20,7 @@ export default function PostWork() {
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
+  const [imageUrl, setImageUrl] = useState(dummyImage);
   //const [myDate, setDate] = useState(now.format("YYYY-MM-DD"));
   const [myDate, setDate] = useState(today);
   const [fromTime, setFromTime] = useState(today);
@@ -76,6 +78,14 @@ export default function PostWork() {
               placeholder="Enter image url here.."
               required
             />
+          </Form.Group>
+
+          <Form.Group>
+            <Col className="mt-2" md={{ span: 4, offset: 2 }}>
+              {imageUrl ? (
+                <Image src={imageUrl} alt="preview" thumbnail />
+              ) : null}
+            </Col>
           </Form.Group>
 
           <Form.Row>

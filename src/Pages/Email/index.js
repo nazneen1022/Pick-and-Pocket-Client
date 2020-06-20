@@ -1,16 +1,22 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Form, Button, Modal } from "react-bootstrap";
 
 import { sendEmail } from "../../store/Email/actions";
 
+export const selectEmailMsg = (state) => state.email;
+
 export default function Email({ handleClose, show }) {
   const [content, setContent] = useState("");
+  const [disabled, setDisabled] = useState(false);
+  const emailMsg = useSelector(selectEmailMsg);
+
+  console.log("emailMsg:", emailMsg);
 
   const dispatch = useDispatch();
   const notifyMe = () => {
-    //console.log("Im here with content:", content);
     dispatch(sendEmail(content));
+    setDisabled(true);
   };
 
   return (
@@ -21,7 +27,7 @@ export default function Email({ handleClose, show }) {
         </Modal.Header>
         <Modal.Body>
           <Form.Group controlId="formBasicMessage">
-            <Form.Label>Message text : </Form.Label>
+            <Form.Label>Message </Form.Label>
             <Form.Control
               as="textarea"
               rows="3"
@@ -36,12 +42,11 @@ export default function Email({ handleClose, show }) {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={notifyMe}>
+          <Button variant="primary" onClick={notifyMe} disabled={disabled}>
             Send Email
           </Button>
         </Modal.Footer>
       </Modal>
-      <button onClick={handleClose}>close</button>
     </>
   );
 }
