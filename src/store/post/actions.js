@@ -1,5 +1,6 @@
 import axios from "axios";
 import { apiUrl } from "../../Config/constants";
+import { showMessageWithTimeout, appDoneLoading } from "../appState/actions";
 
 export const getPosts = (posts) => {
   return { type: "FETCH_ALL_POSTS", payload: posts };
@@ -48,8 +49,10 @@ export const submitPost = (
         },
       }
     );
-    console.log("response:", response);
+
     dispatch(addPost(response.data.newPost));
+    dispatch(showMessageWithTimeout("success", true, "New post created"));
+    dispatch(appDoneLoading());
   } catch (error) {
     console.log(error);
   }

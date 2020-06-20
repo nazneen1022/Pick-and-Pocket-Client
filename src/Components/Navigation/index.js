@@ -5,7 +5,8 @@ import NavbarItem from "./NavbarItem";
 import LoggedIn from "./LoggedIn";
 import LoggedOut from "./LoggedOut";
 import { selectToken } from "../../store/user/selectors";
-//import logo from "../../Images/Make-Money-in-Your-Free-Time.png";
+
+import logo from "../../Images/logo.jpeg";
 
 export default function Navigation() {
   const token = useSelector(selectToken);
@@ -13,24 +14,35 @@ export default function Navigation() {
 
   return (
     <>
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand href="#home">
-          <h2>{`Pick & Pocket`}</h2>
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav style={{ width: "100%" }} fill>
-            {token ? (
-              <>
-                <NavbarItem path="/PickWork" linkText="Pick" />
-                <NavbarItem path="/PostWork" linkText="Post New" />
-                <NavbarItem path="/GiveFeedback" linkText="Give Feedback" />
-              </>
-            ) : null}
-          </Nav>
-        </Navbar.Collapse>
-        {loginLogoutControls}
-      </Navbar>
+      <div style={{ fontFamily: `"Comic Sans MS", cursive, sans-serif` }}>
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+          <Navbar.Brand href="/" style={{ fontSize: "30px" }}>
+            <img
+              alt="logo"
+              src={logo}
+              width="50"
+              height="50"
+              className="d-inline-block align-center"
+            />
+            {` Pick and Pocket `}
+          </Navbar.Brand>
+
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse>
+            <Nav style={{ width: "100%" }} fill>
+              {token ? (
+                <>
+                  <NavbarItem path="/PickWork" linkText="Pick" />
+                  <NavbarItem path="/MyPosts" linkText="My Posts" />
+                  <NavbarItem path="/PostWork" linkText="Post New" />
+                  <NavbarItem path="/GiveFeedback" linkText="Give Feedback" />
+                </>
+              ) : null}
+            </Nav>
+          </Navbar.Collapse>
+          {loginLogoutControls}
+        </Navbar>
+      </div>
     </>
   );
 }

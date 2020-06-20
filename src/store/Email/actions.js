@@ -1,8 +1,9 @@
 import myAxios from "axios";
 import { apiUrl } from "../../Config/constants";
+import { showMessageWithTimeout, appDoneLoading } from "../appState/actions";
 
 export const newEmail = (responseMessage) => {
-  return { type: "SEND_EMAIL", action: responseMessage };
+  return { type: "SEND_EMAIL", payload: responseMessage };
 };
 
 export const sendEmail = (content) => async (dispatch, getState) => {
@@ -23,6 +24,8 @@ export const sendEmail = (content) => async (dispatch, getState) => {
     );
     //console.log("Here sendmail response from server: ", response);
     dispatch(newEmail(response.data));
+    dispatch(showMessageWithTimeout("success", true, response.data.message));
+    dispatch(appDoneLoading());
   } catch (error) {
     console.log(error);
   }
