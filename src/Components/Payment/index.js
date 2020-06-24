@@ -2,10 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import StripeCheckout from "react-stripe-checkout";
 
 import { confirmWork } from "../../store/myPosts/actions";
 import { apiUrl } from "../../Config/constants";
+
+toast.configure();
 
 export default function Payment(props) {
   const dispatch = useDispatch();
@@ -36,8 +40,19 @@ export default function Payment(props) {
       title,
       price,
     });
-    //const { status } = response.data;
-    console.log("Status##", response.data);
+
+    //console.log("Status##", response.data);
+    const { status } = response.data;
+
+    if (status === "success") {
+      toast("Payment is successful. Please check email for details.", {
+        type: "success",
+      });
+    } else {
+      toast("Payment is not successful.", {
+        type: "error",
+      });
+    }
   };
 
   return (
@@ -50,28 +65,19 @@ export default function Payment(props) {
       <span>{"                                "}</span>
       {disabled ? (
         <StripeCheckout
-          stripeKey="pk_test_BUbsWezAWcQO98PoVVM3cDrs00ii9f5FOg"
+          stripeKey="pk_test_51GviqtAzSgmuZzUjGponrT7cKLwvvf3NIaJprSCb3glOthFvEcTfGFoI3OAd6vKmPt2bLddwcb7HUIto69tMggXa00slcpNnG2"
           token={handlePayment}
           name={props.title}
           amount={price * 100}
           currency="EUR"
         >
-          {/* <Button type="submit">
+          <style type="text/css">
+            {` .btn-pay { background-color: purple;  color: white;}`}
+          </style>
+
+          <Button type="submit" variant="pay">
             Pay Now
-          </Button> */}
-          <>
-            <style type="text/css">
-              {`
-    .btn-pay {
-      background-color: purple;
-      color: white;
-    }
-
-    `}
-            </style>
-
-            <Button variant="pay">Pay Now</Button>
-          </>
+          </Button>
         </StripeCheckout>
       ) : null}
     </div>

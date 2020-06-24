@@ -6,7 +6,7 @@ import { sendEmail } from "../../store/Email/actions";
 
 export const selectEmailMsg = (state) => state.email;
 
-export default function Email({ handleClose, show }) {
+export default function Email({ handleClose, show, title }) {
   const [content, setContent] = useState("");
   const [disabled, setDisabled] = useState(false);
   const emailMsg = useSelector(selectEmailMsg);
@@ -23,7 +23,7 @@ export default function Email({ handleClose, show }) {
     <>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Send Email</Modal.Title>
+          <Modal.Title>Send Email ({title})</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form.Group controlId="formBasicMessage">

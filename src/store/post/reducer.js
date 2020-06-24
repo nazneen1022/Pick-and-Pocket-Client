@@ -6,7 +6,11 @@ export const reducer = (state = initialState, action) => {
       return action.payload;
     }
     case "ADD_POST": {
-      return [...state, action.payload];
+      if (!state) {
+        return [action.payload];
+      } else {
+        return [...state, action.payload];
+      }
     }
     default:
       return state;
