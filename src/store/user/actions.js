@@ -1,5 +1,11 @@
 import { apiUrl } from "../../Config/constants";
 import axios from "axios";
+import {
+  showMessageWithTimeout,
+  setMessage,
+  appLoading,
+  appDoneLoading,
+} from "../appState/actions";
 import { selectToken } from "./selectors";
 
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
@@ -32,24 +38,24 @@ export const signUp = (firstName, lastName, email, password) => {
         password,
       });
       dispatch(loginSuccess(response.data));
-      //dispatch(showMessageWithTimeout("success", true, "account created"));
-      //dispatch(appDoneLoading());
+      dispatch(showMessageWithTimeout("success", true, "account created"));
+      dispatch(appDoneLoading());
     } catch (error) {
       if (error.response) {
         console.log(error.response.data.message);
         //dispatch(setMessage("danger", true, error.response.data.message));
       } else {
         console.log(error.message);
-        //dispatch(setMessage("danger", true, error.message));
+        dispatch(setMessage("danger", true, error.message));
       }
-      //dispatch(appDoneLoading());
+      dispatch(appDoneLoading());
     }
   };
 };
 
 export const login = (email, password) => {
   return async (dispatch, getState) => {
-    //dispatch(appLoading());
+    dispatch(appLoading());
     try {
       const response = await axios.post(`${apiUrl}/login`, {
         email,
@@ -57,17 +63,17 @@ export const login = (email, password) => {
       });
 
       dispatch(loginSuccess(response.data));
-      //dispatch(showMessageWithTimeout("success", false, "welcome back!", 1500));
-      //dispatch(appDoneLoading());
+      dispatch(showMessageWithTimeout("success", false, "Welcome back!", 1500));
+      dispatch(appDoneLoading());
     } catch (error) {
       if (error.response) {
         console.log(error.response.data.message);
-        //dispatch(setMessage("danger", true, error.response.data.message));
+        dispatch(setMessage("danger", true, error.response.data.message));
       } else {
         console.log(error.message);
-        // dispatch(setMessage("danger", true, error.message));
+        dispatch(setMessage("danger", true, error.message));
       }
-      //dispatch(appDoneLoading());
+      dispatch(appDoneLoading());
     }
   };
 };

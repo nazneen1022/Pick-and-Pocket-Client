@@ -41,6 +41,8 @@ export const submitPost = (
         imageUrl,
         startTime,
         endTime,
+        latitude: 52.0369643,
+        longitude: 4.3152622,
         userId: id,
       },
       {

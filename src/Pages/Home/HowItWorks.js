@@ -33,7 +33,9 @@ export default function HowItWorks() {
         />
         <Card.Body style={{ textAlign: "left" }}>
           <Card.Title>2. PICK UP WORKS</Card.Title>
-          <Card.Text>Tasks are diverse and readily available</Card.Text>
+          <Card.Text>
+            Short-time works are diverse and readily available.
+          </Card.Text>
         </Card.Body>
       </Card>
 
@@ -47,7 +49,7 @@ export default function HowItWorks() {
         />
         <Card.Body style={{ textAlign: "left" }}>
           <Card.Title>3. COMPLETE WORKS</Card.Title>
-          <Card.Text>Finish the work</Card.Text>
+          <Card.Text>Finish it. It makes you happy by helping others</Card.Text>
         </Card.Body>
       </Card>
 

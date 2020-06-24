@@ -3,6 +3,7 @@
   font-family: "Trebuchet MS", Helvetica, sans-serif;
   color: black;
   width: 100%;
+  text-align: center;
 }
 
 .myBody {
@@ -21,6 +22,7 @@
 
 .myDiv {
   display: inline-block;
+  align-content: center;
   overflow: hidden;
   white-space: nowrap;
   font-weight: bold;
@@ -96,8 +98,26 @@
   }
 }
 
-/* .myParagraph {
-  font-size: 12px;
-  color: #999;
-  margin-top: 200px;
-} */
+.border {
+  height: 72px;
+  width: 172px;
+  background: linear-gradient(90deg, black 50%, transparent 50%),
+    linear-gradient(90deg, black 50% 50%, transparent 50%),
+    linear-gradient(0deg, black 50% 50%, transparent 50%),
+    linear-gradient(0deg, black 50% 50%, transparent 50%);
+  background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+  background-size: 10px 4px, 10px 4px, 4px 10px, 4px 10px;
+
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
+  animation: border-dance 3s infinite linear;
+}
+@keyframes border-dance {
+  0% {
+    background-position: 0px 0px, 100px 66px, 0px 50px, 166px 0px;
+  }
+  100% {
+    background-position: 100px 0px, 0px 66px, 0px 0px, 166px 50px;
+  }
+}

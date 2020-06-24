@@ -14,7 +14,7 @@ export default function Home() {
   const userLoggedIn =
     token && (user.firstName !== null || !user.lastName !== null);
 
-  const linkTo = token ? "/PickWork" : "/Signup";
+  const linkTo = token ? "/PickWork" : "/Login";
 
   return (
     <>
@@ -40,19 +40,25 @@ export default function Home() {
         <br />
         <br />
         <br />
-        <br />
-        <Link to={linkTo}>
-          <Button
-            style={{ borderRadius: "20px", backgroundColor: "purple" }}
-          >{`Look Now`}</Button>
-        </Link>
-
-        <br />
-        <br />
+        <div className="border">
+          <Link to={linkTo}>
+            <Button
+              style={{
+                borderRadius: "20px",
+                backgroundColor: "purple",
+              }}
+            >{`Look Now`}</Button>
+          </Link>
+        </div>
       </Jumbotron>
       <br />
       <br />
-      <div style={{ fontFamily: `"Comic Sans MS", cursive, sans-serif` }}>
+      <div
+        style={{
+          textAlign: "center",
+          fontFamily: `"Comic Sans MS", cursive, sans-serif`,
+        }}
+      >
         <h2>{`How it works?`}</h2>
         <h4>{`Four easy steps to get paid.`}</h4>
         <Container>

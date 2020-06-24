@@ -3,7 +3,7 @@
   text-align: left;
   width: unset;
 }
-.button {
+/* .button {
   background-color: purple;
   font-weight: bold;
   border: none;
@@ -23,9 +23,11 @@
   background-color: purple;
   color: white;
   border: 2px solid;
-}
-
-/* .button1:hover {
-  background-color: purple;
-  color: white;
 } */
+
+.email-btn {
+  font-size: 15px;
+  border: none;
+  background: none;
+  color: #660066;
+}
