@@ -26,21 +26,21 @@ export default function Pick() {
     (post) => post.userId !== loginUser.id
   );
 
-  console.log("filtered Posts :", otherPosts);
+  // console.log("filtered Posts :", otherPosts);
 
   const sortedPosts = [...otherPosts].sort(function (a, b) {
     if (a.updatedAt > b.updatedAt) return -1;
     if (a.updatedAt < b.updatedAt) return 1;
     return 0;
   });
-  console.log("sorted Posts:", sortedPosts);
+  // console.log("sorted Posts:", sortedPosts);
 
   return (
     <>
       <div>
         <Container>
-          {otherPosts &&
-            otherPosts.map((post) => {
+          {sortedPosts &&
+            sortedPosts.map((post) => {
               return (
                 <Row style={{ backgroundColor: "orange" }} key={post.id}>
                   <Post

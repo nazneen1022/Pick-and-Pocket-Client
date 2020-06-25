@@ -15,7 +15,7 @@ export default function Email({ handleClose, show, title }) {
 
   const dispatch = useDispatch();
   const notifyMe = () => {
-    dispatch(sendEmail(content));
+    dispatch(sendEmail(title, content));
     setDisabled(true);
   };
 
