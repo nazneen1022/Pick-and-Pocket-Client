@@ -25,38 +25,41 @@ export default function MyPosts() {
     return <div>Loading...</div>;
   }
 
+  const sortedMyPosts = [...myPosts].sort(function (a, b) {
+    if (a.updatedAt > b.updatedAt) return -1;
+    if (a.updatedAt < b.updatedAt) return 1;
+    return 0;
+  });
+
   return (
-    <>
-      <div>
-        <Container>
-          {myPosts.map((post) => {
-            return (
-              <Row className="mypost" key={post.id}>
-                <Col>
-                  <h3>
-                    <strong>{post.title}</strong>
-                  </h3>
-                  <div>
-                    <img
-                      className="myImage"
-                      src={post.imageUrl ? post.imageUrl : dummyImage}
-                      alt=""
-                      height="400px"
-                    />
-                  </div>
-                  <br />
-                  <div>
-                    <p style={{ textAlign: "left" }}>{post.description}</p>
-                  </div>
-                  <div>
-                    <Payment {...post} />
-                  </div>
-                </Col>
-              </Row>
-            );
-          })}
-        </Container>
-      </div>
-    </>
+    <Container>
+      {sortedMyPosts &&
+        sortedMyPosts.map((post) => {
+          return (
+            <Row className="mypost" key={post.id}>
+              <Col>
+                <h3>
+                  <strong>{post.title}</strong>
+                </h3>
+                <div>
+                  <img
+                    className="myImage"
+                    src={post.imageUrl ? post.imageUrl : dummyImage}
+                    alt=""
+                    height="400px"
+                  />
+                </div>
+                <br />
+                <div>
+                  <p style={{ textAlign: "left" }}>{post.description}</p>
+                </div>
+                <div>
+                  <Payment {...post} />
+                </div>
+              </Col>
+            </Row>
+          );
+        })}
+    </Container>
   );
 }

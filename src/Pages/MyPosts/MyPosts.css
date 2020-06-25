@@ -4,10 +4,11 @@
   background-color: rgb(218, 231, 197);
   margin: 10px;
   padding: 10px;
+  text-align: center;
 }
 
 .myImage {
-  width: 100%;
+  width: 70%;
 }
 
 button {

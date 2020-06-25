@@ -73,7 +73,8 @@ export default function Post(props) {
             </div>
 
             <div>
-              <Link to="/Location">{props.button1Text}</Link>
+              {/* <Link to="/Location">{props.button1Text}</Link> */}
+              <button className="email-btn">{props.button1Text}</button>
             </div>
             <div>
               <p style={{ fontSize: "25px" }}>
