@@ -69,7 +69,7 @@ export default function PostWork() {
     calculateFromTime();
   }, [myDate]);
 
-  console.log("min:", fromMin);
+  //console.log("min:", fromMin);
 
   useEffect(() => {
     const calculateToTime = () => {
@@ -264,7 +264,7 @@ export default function PostWork() {
               </Form.Group>
             </Form.Row>
             <Form.Group className="mt-5">
-              <Button type="submit" disabled={isSubmitting}>
+              <Button id="post" type="submit" disabled={isSubmitting}>
                 Submit Post
               </Button>
             </Form.Group>

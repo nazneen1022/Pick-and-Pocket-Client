@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Nav, Navbar } from "react-bootstrap";
 import NavbarItem from "./NavbarItem";
@@ -7,10 +7,26 @@ import LoggedOut from "./LoggedOut";
 import { selectToken } from "../../store/user/selectors";
 
 import logo from "../../Images/logo.png";
+import "./Bell.css";
 
-export default function Navigation() {
+export default function Navigation(props) {
   const token = useSelector(selectToken);
   const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
+
+  useEffect(() => {
+    const $bell = document.getElementById("notification");
+    console.log("props.newpost:", props.newpost);
+    if (props.newpost) {
+      const count = Number($bell.getAttribute("data-count")) || 0;
+
+      $bell.setAttribute("data-count", count + 1);
+      $bell.classList.add("show-count");
+      $bell.classList.add("notify");
+    }
+    $bell.addEventListener("animationend", function (event) {
+      $bell.classList.remove("notify");
+    });
+  }, [props.newpost]);
 
   return (
     <Navbar
@@ -44,7 +60,7 @@ export default function Navigation() {
           ) : null}
         </Nav>
       </Navbar.Collapse>
-
+      <div id="notification" className="notification"></div>
       {loginLogoutControls}
     </Navbar>
   );

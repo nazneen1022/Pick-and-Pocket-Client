@@ -15,7 +15,6 @@ import PostWork from "./Pages/PostWork";
 import Pick from "./Pages/Pick";
 import MyPosts from "./Pages/MyPosts";
 import MapContainer from "./Pages/MapContainer";
-import { Jumbotron } from "react-bootstrap";
 
 function App() {
   const [socket, setSocket] = useState(null);
@@ -31,17 +30,17 @@ function App() {
 
   // establish socket connection
   useEffect(() => {
-    setSocket(io("http://localhost:4000"));
+    if (process.env.NODE_ENV !== "production") {
+      setSocket(io("http://localhost:4000"));
+    } else {
+      setSocket(io("https://pick-and-pocket-server.herokuapp.com/"));
+    }
     dispatch(getUserWithStoredToken());
   }, [dispatch]);
 
   // subscribe to the socket event
   useEffect(() => {
     if (!socket) return;
-
-    const subscribeToNewPost = (interval = 1000) => {
-      socket.emit("subscribeToNewPost", interval);
-    };
 
     socket.on("connect", () => {
       setSocketConnected(socket.connected);
@@ -72,32 +71,37 @@ function App() {
   //   socket.emit("subscribeToDateEvent", interval);
   // };
 
+  // subscribe to socket new post event
+  const subscribeToNewPost = (interval = 1000) => {
+    socket.emit("subscribeToNewPost", interval);
+  };
+
   return (
     <>
-      <Navigation />
-      <Jumbotron>
-        <div>
-          <b>New post notification subscription status : </b>{" "}
-          {socketConnected ? "Subscribed" : "Unsubscribed"}
-          {"  "}
+      <Navigation newpost={post} />
+      <div style={{ textAlign: "center" }}>
+        <b>Subscription status : </b>{" "}
+        {socketConnected ? "Subscribed" : "Unsubscribed"}
+        <p>
           <input
             type="button"
             style={{
               color: "white",
               borderRadius: "2px",
-              backgroundColor: "Red",
+              backgroundColor: "purple",
             }}
             value={socketConnected ? "Unsubscribe" : "Subscribe"}
             onClick={handleSocketConnection}
           />
-          {socketConnected && post && post.title ? (
-            <div style={{ marginTop: 20 }}>
-              <b>There is a new post titled : </b>
-              {post.title}
-            </div>
-          ) : null}
-        </div>
-      </Jumbotron>
+        </p>
+        {socketConnected && post && post.title ? (
+          <div style={{ marginTop: 20 }}>
+            <b>There is a new post titled : </b>
+            {post.title}
+          </div>
+        ) : null}
+      </div>
+
       <MessageBox />
       <Switch>
         <Route exact path="/" component={Home} />
