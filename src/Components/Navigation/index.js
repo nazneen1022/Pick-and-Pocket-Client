@@ -55,7 +55,7 @@ export default function Navigation(props) {
               <NavbarItem path="/PickWork" linkText="Pick" />
               <NavbarItem path="/MyPosts" linkText="My Posts" />
               <NavbarItem path="/PostWork" linkText="Post New" />
-              <NavbarItem path="/GiveFeedback" linkText="Give Feedback" />
+              {/* <NavbarItem path="/GiveFeedback" linkText="Give Feedback" /> */}
             </>
           ) : null}
         </Nav>

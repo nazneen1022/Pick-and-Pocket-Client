@@ -6,12 +6,12 @@ With Pick and Pocket, you will have a platform to post your work for sharing or 
 
 ## Contents
 
-- App Demo
-- Technology Used
-- Goals of this project
-- User stories & Wireframe
-- Git Workflow
-- Server Repo
+- [App Demo](https://github.com/nazneen1022/Pick-and-Pocket-Client#App-Demo)
+- [Technology Used](https://github.com/nazneen1022/Pick-and-Pocket-Client#technology-used)
+- [Goals of this project](https://github.com/nazneen1022/Pick-and-Pocket-Client#goals-of-this-project)
+- [User stories and Wireframe](https://github.com/nazneen1022/Pick-and-Pocket-Client#user-stories-and-wireframe)
+- [Git Workflow](https://github.com/nazneen1022/Pick-and-Pocket-Client#git-workflow)
+- [Server Repo](https://github.com/nazneen1022/Pick-and-Pocket-server)
 
 ## App Demo
 
@@ -19,15 +19,15 @@ With Pick and Pocket, you will have a platform to post your work for sharing or 
 
 ## Technology Used
 
-- React
-- Redux
-- Nodemailer ⭐️
-- Stripe ⭐️
-- Socket io ⭐️
-- React Bootstrap
-- Express
-  - Rest API
-- Sequelize
+- [React](https://github.com/nazneen1022/Pick-and-Pocket-Client/blob/master/src/App.js)
+- [Redux](https://github.com/nazneen1022/Pick-and-Pocket-Client/tree/master/src/store)
+- [Nodemailer](https://github.com/nazneen1022/Pick-and-Pocket-server/blob/master/routers/sendMail.js) ⭐️
+- [Stripe](https://github.com/nazneen1022/Pick-and-Pocket-server/blob/master/routers/payment.js) ⭐️
+- [Socket io](https://github.com/nazneen1022/Pick-and-Pocket-server/blob/master/routers/post.js) ⭐️
+- [React Bootstrap](https://react-bootstrap.github.io/getting-started/introduction)
+- [Express](https://github.com/nazneen1022/Pick-and-Pocket-server/blob/master/index.js)
+  - [Rest API](https://github.com/nazneen1022/Pick-and-Pocket-server/blob/master/routers/payment.js)
+- [Sequelize](https://github.com/nazneen1022/Pick-and-Pocket-server/blob/master/models/post.js)
 
 ⭐️ New technologies learned during this project.
 
@@ -67,7 +67,7 @@ The goal of this project is to build a full-stack app using new technologies not
 - Pull requests with summaries
 - Used development branch without merging to the master all-time
 
-👀 Click links to view samples of pull requests
+👇 Click below links to view 👀 samples of pull requests
 
 - [feat-push-notification](https://github.com/nazneen1022/Pick-and-Pocket-Client/pull/5)
 - [feat-payment](https://github.com/nazneen1022/Pick-and-Pocket-Client/pull/4)
