@@ -8,7 +8,7 @@ With Pick and Pocket, you will have a platform to post your work for sharing or 
 
 - [App Demo](https://github.com/nazneen1022/Pick-and-Pocket-Client#App-Demo)
 - [Technology Used](https://github.com/nazneen1022/Pick-and-Pocket-Client#technology-used)
-- [Goals of this project](https://github.com/nazneen1022/Pick-and-Pocket-Client#goals-for-this-project)
+- [Goals of this project](https://github.com/nazneen1022/Pick-and-Pocket-Client#goals-of-this-project)
 - [User stories and Wireframe](https://github.com/nazneen1022/Pick-and-Pocket-Client#user-stories-and-wireframe)
 - [Git Workflow](https://github.com/nazneen1022/Pick-and-Pocket-Client#git-workflow)
 - [Server Repo](https://github.com/nazneen1022/Pick-and-Pocket-server)
