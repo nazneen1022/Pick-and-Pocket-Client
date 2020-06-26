@@ -15,11 +15,16 @@ With Pick and Pocket, you will have a platform to post your work for sharing or 
 
 ## App Demo
 
+- GIF representing my app
+
+![image](https://user-images.githubusercontent.com/63520290/85857312-e3637400-b7b9-11ea-805f-7f250db50ad2.png)
+
+- App screenshots (v1.0)
+
 ![image](https://user-images.githubusercontent.com/63520290/85855894-456eaa00-b7b7-11ea-9d47-389458ac1abc.png)
 ![image](https://user-images.githubusercontent.com/63520290/85855985-6cc57700-b7b7-11ea-96bd-f5da9c6ba8f6.png)
 ![image](https://user-images.githubusercontent.com/63520290/85856548-80251200-b7b8-11ea-9716-efcd3a775cd3.png)
 ![image](https://user-images.githubusercontent.com/63520290/85856302-10af2280-b7b8-11ea-925e-fc098cfbe698.png)
-![image](https://user-images.githubusercontent.com/63520290/85856969-3d176e80-b7b9-11ea-81f7-26bf0a522526.png)
 ![image](https://user-images.githubusercontent.com/63520290/85857002-4d2f4e00-b7b9-11ea-8a0d-ca5dd43ac25e.png)
 
 ## Technology Used
