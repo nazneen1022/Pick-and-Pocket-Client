@@ -50,7 +50,7 @@ export default function PostWork() {
       if (myDate) {
         if (
           moment(myDate).format("YYYY-MM-DD") ===
-          moment(today).format("YYYY-MM-DD")
+          moment(new Date()).format("YYYY-MM-DD")
         ) {
           minFromTime = new Date(
             new Date().setHours(
@@ -67,7 +67,7 @@ export default function PostWork() {
       }
     };
     calculateFromTime();
-  }, [myDate, today]);
+  }, [myDate]);
 
   //console.log("min:", fromMin);
 
