@@ -42,6 +42,11 @@ function App() {
   useEffect(() => {
     if (!socket) return;
 
+    // subscribe to socket new post event
+    const subscribeToNewPost = (interval = 1000) => {
+      socket.emit("subscribeToNewPost", interval);
+    };
+
     socket.on("connect", () => {
       setSocketConnected(socket.connected);
       //subscribeToDateEvent();
@@ -70,11 +75,6 @@ function App() {
   // const subscribeToDateEvent = (interval = 1000) => {
   //   socket.emit("subscribeToDateEvent", interval);
   // };
-
-  // subscribe to socket new post event
-  const subscribeToNewPost = (interval = 1000) => {
-    socket.emit("subscribeToNewPost", interval);
-  };
 
   return (
     <>

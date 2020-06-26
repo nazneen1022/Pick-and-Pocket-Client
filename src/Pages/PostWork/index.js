@@ -67,7 +67,7 @@ export default function PostWork() {
       }
     };
     calculateFromTime();
-  }, [myDate]);
+  }, [myDate, today]);
 
   //console.log("min:", fromMin);
 
