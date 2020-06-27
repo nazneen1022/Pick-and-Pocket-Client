@@ -15,17 +15,7 @@ With Pick and Pocket, you will have a platform to post your work for sharing or 
 
 ## App Demo
 
-- GIF representing my app
-
-![image](https://user-images.githubusercontent.com/63520290/85857312-e3637400-b7b9-11ea-805f-7f250db50ad2.png)
-
-- App screenshots (v1.0)
-
-![image](https://user-images.githubusercontent.com/63520290/85855894-456eaa00-b7b7-11ea-9d47-389458ac1abc.png)
-![image](https://user-images.githubusercontent.com/63520290/85855985-6cc57700-b7b7-11ea-96bd-f5da9c6ba8f6.png)
-![image](https://user-images.githubusercontent.com/63520290/85856548-80251200-b7b8-11ea-9716-efcd3a775cd3.png)
-![image](https://user-images.githubusercontent.com/63520290/85856302-10af2280-b7b8-11ea-925e-fc098cfbe698.png)
-![image](https://user-images.githubusercontent.com/63520290/85857002-4d2f4e00-b7b9-11ea-8a0d-ca5dd43ac25e.png)
+![Alt Text]()
 
 ## Technology Used
 
@@ -70,7 +60,7 @@ The goal of this project is to build a full-stack app using new technologies not
 
 ## Git Workflow
 
-- In this project I try to use:
+In this project I try to use:
 
 - Good commit messages
 - Named branches
@@ -85,3 +75,15 @@ The goal of this project is to build a full-stack app using new technologies not
 ## Server Repo
 
 - The server side of this project is an Express server connected to a Sequelize database. [Click here for more details](https://github.com/nazneen1022/Pick-and-Pocket-server)
+
+## How to Install this?
+
+- clone the app
+- cd into your project
+- Install dependencies using below 👇 command
+
+### npm install
+
+- start development server using below 👇 command
+
+### npm run start
