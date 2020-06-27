@@ -15,7 +15,8 @@ With Pick and Pocket, you will have a platform to post your work for sharing or 
 
 ## App Demo
 
-**_ Work in progress _**
+![image](https://user-images.githubusercontent.com/63520290/85929921-bfd32300-b8b8-11ea-9c9a-b7dc3deb7589.png)
+![image](https://user-images.githubusercontent.com/63520290/85929934-d11c2f80-b8b8-11ea-8b7c-3c1f535be5aa.png)
 
 ## Technology Used
 
@@ -60,7 +61,7 @@ The goal of this project is to build a full-stack app using new technologies not
 
 ## Git Workflow
 
-- In this project I try to use:
+In this project I try to use:
 
 - Good commit messages
 - Named branches
@@ -75,3 +76,10 @@ The goal of this project is to build a full-stack app using new technologies not
 ## Server Repo
 
 - The server side of this project is an Express server connected to a Sequelize database. [Click here for more details](https://github.com/nazneen1022/Pick-and-Pocket-server)
+
+## How to Install this?
+
+- clone the app
+- cd into your project
+- Install dependencies using `npm install`
+- start development server using `npm run start`
