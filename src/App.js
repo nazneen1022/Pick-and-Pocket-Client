@@ -30,11 +30,12 @@ function App() {
 
   // establish socket connection
   useEffect(() => {
-    if (process.env.NODE_ENV !== "production") {
-      setSocket(io("http://localhost:4000"));
-    } else {
-      setSocket(io("https://pick-and-pocket-server.herokuapp.com/"));
-    }
+    // if (process.env.NODE_ENV !== "production") {
+    //   setSocket(io("http://localhost:4000"));
+    // } else {
+    //   setSocket(io("https://pick-and-pocket-server.herokuapp.com/"));
+    // }
+    setSocket(io("https://pick-and-pocket-server.herokuapp.com/"));
     dispatch(getUserWithStoredToken());
   }, [dispatch]);
 
