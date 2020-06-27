@@ -15,7 +15,7 @@ With Pick and Pocket, you will have a platform to post your work for sharing or 
 
 ## App Demo
 
-![Alt Text]()
+![Alt Text](https://github.com/nazneen1022/Pick-and-Pocket-Client/blob/prepare-to-deploy/Help-Me-Help-You.gif)
 
 ## Technology Used
 
@@ -80,10 +80,5 @@ In this project I try to use:
 
 - clone the app
 - cd into your project
-- Install dependencies using below 👇 command
-
-### npm install
-
-- start development server using below 👇 command
-
-### npm run start
+- Install dependencies using `npm install`
+- start development server using `npm run start`
