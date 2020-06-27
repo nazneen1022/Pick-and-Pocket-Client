@@ -15,7 +15,8 @@ With Pick and Pocket, you will have a platform to post your work for sharing or 
 
 ## App Demo
 
-![Alt Text](https://github.com/nazneen1022/Pick-and-Pocket-Client/blob/prepare-to-deploy/Help-Me-Help-You.gif)
+![image](https://user-images.githubusercontent.com/63520290/85929921-bfd32300-b8b8-11ea-9c9a-b7dc3deb7589.png)
+![image](https://user-images.githubusercontent.com/63520290/85929934-d11c2f80-b8b8-11ea-8b7c-3c1f535be5aa.png)
 
 ## Technology Used
 
