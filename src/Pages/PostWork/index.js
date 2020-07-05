@@ -116,161 +116,178 @@ export default function PostWork() {
   };
 
   return (
-    <Formik
-      initialValues={{
-        title: "",
-        description: "",
-        imageUrl:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSMut25Aw2iMirLtCWnKDyIx98svQ_x9tq5ow&usqp=CAU",
-        myDate: today,
-      }}
-      validationSchema={validationSchema}
-      onSubmit={(values, { setSubmitting, resetForm }) => {
-        // When button submits form and form is in the process of submitting, submit button is disabled
-        setSubmitting(true);
+    <div style={{ backgroundColor: "#e0ebeb" }}>
+      <br />
+      <Formik
+        initialValues={{
+          title: "",
+          description: "",
+          imageUrl:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSMut25Aw2iMirLtCWnKDyIx98svQ_x9tq5ow&usqp=CAU",
+          myDate: today,
+        }}
+        validationSchema={validationSchema}
+        onSubmit={(values, { setSubmitting, resetForm }) => {
+          // When button submits form and form is in the process of submitting, submit button is disabled
+          setSubmitting(true);
 
-        // Simulate submitting to database, shows us values submitted, resets form
-        setTimeout(() => {
-          //alert(JSON.stringify(values, null, 2));
-          postForm(values);
-          resetForm();
-          setSubmitting(false);
-        }, 3000);
-      }}
-    >
-      {/* Callback function containing Formik state and helpers that handle common form actions */}
-      {({
-        values,
-        errors,
-        touched,
-        handleChange,
-        handleSubmit,
-        isSubmitting,
-      }) => (
-        <div style={{ alignItems: "center", margin: "0px 25% 0px 25%" }}>
-          <Form onSubmit={handleSubmit}>
-            <h1 className="mt-5 mb-5">Post some work</h1>
-            <Form.Group controlId="validationCustom01">
-              <Form.Label>Title : </Form.Label>
-              <Form.Control
-                value={values.title}
-                onChange={handleChange}
-                name="title"
-                type="text"
-                placeholder="Enter title.."
-                className={touched.title && errors.title ? "error" : null}
-              />
-              {touched.title && errors.title ? (
-                <div className="error-message">{errors.title}</div>
-              ) : null}
-            </Form.Group>
+          // Simulate submitting to database, shows us values submitted, resets form
+          setTimeout(() => {
+            //alert(JSON.stringify(values, null, 2));
+            postForm(values);
+            resetForm();
+            setSubmitting(false);
+          }, 3000);
+        }}
+      >
+        {/* Callback function containing Formik state and helpers that handle common form actions */}
+        {({
+          values,
+          errors,
+          touched,
+          handleChange,
+          handleSubmit,
+          isSubmitting,
+        }) => (
+          <div
+            style={{
+              alignItems: "center",
+              margin: "0px 25% 0px 25%",
+            }}
+          >
+            <Form onSubmit={handleSubmit}>
+              <h3>Post New work</h3>
 
-            <Form.Group controlId="validationCustom02">
-              <Form.Label>Description : </Form.Label>
-              <Form.Control
-                as="textarea"
-                rows="5"
-                value={values.description}
-                onChange={handleChange}
-                name="description"
-                type="text"
-                placeholder="Enter some description here.."
-                className={
-                  touched.description && errors.description ? "error" : null
-                }
-              />
-              {touched.description && errors.description ? (
-                <div className="error-message">{errors.description}</div>
-              ) : null}
-            </Form.Group>
-
-            <Form.Group controlId="validationCustom03">
-              <Form.Label>Image URL : </Form.Label>
-              <Form.Control
-                type="text"
-                name="imageUrl"
-                onChange={handleChange}
-                value={values.imageUrl}
-                placeholder="Enter image url here.."
-                className={touched.imageUrl && errors.imageUrl ? "error" : null}
-              />
-
-              <Form.Text className="text-muted">
-                {`You can give some image url for your post for an easy eye catch of the seekers or will be defaulted with site logo`}
-              </Form.Text>
-              {touched.imageUrl && errors.imageUrl ? (
-                <div className="error-message">{errors.imageUrl}</div>
-              ) : null}
-            </Form.Group>
-
-            <Form.Group>
-              <Col className="mt-2" md={{ span: 4, offset: 2 }}>
-                {values.imageUrl ? (
-                  <Image src={values.imageUrl} alt="preview" thumbnail />
+              <small>
+                {`(The short-time work should be a minimum of 2 hours)`}
+              </small>
+              <br />
+              <br />
+              <Form.Group controlId="validationCustom01">
+                <Form.Label>Title : </Form.Label>
+                <Form.Control
+                  value={values.title}
+                  onChange={handleChange}
+                  name="title"
+                  type="text"
+                  placeholder="Enter title.."
+                  className={touched.title && errors.title ? "error" : null}
+                />
+                {touched.title && errors.title ? (
+                  <div className="error-message">{errors.title}</div>
                 ) : null}
-              </Col>
-            </Form.Group>
-
-            <Form.Row>
-              <Form.Group as={Col} controlId="validationCustom04">
-                <Form.Label>Date </Form.Label>
-
-                <DatePicker
-                  todayButton="Today"
-                  selected={myDate}
-                  onChange={(date) => setDate(date)}
-                  name="startDate"
-                  dateFormat="MM/dd/yyyy"
-                  minDate={today}
-                  required
-                />
               </Form.Group>
 
-              <Form.Group as={Col} controlId="validationCustom05">
-                <Form.Label>From Time </Form.Label>
-
-                <DatePicker
-                  selected={fromTime}
-                  onChange={(date) => setFromTime(date)}
-                  showTimeSelect
-                  showTimeSelectOnly
-                  timeIntervals={15}
-                  timeCaption="Time"
-                  dateFormat="h:mm aa"
-                  minDate={today}
-                  minTime={fromMin}
-                  maxTime={myDate && new Date(myDate.setHours(23, 59))}
-                  required
+              <Form.Group controlId="validationCustom02">
+                <Form.Label>Description : </Form.Label>
+                <Form.Control
+                  as="textarea"
+                  rows="5"
+                  value={values.description}
+                  onChange={handleChange}
+                  name="description"
+                  type="text"
+                  placeholder="Enter some description here.."
+                  className={
+                    touched.description && errors.description ? "error" : null
+                  }
                 />
+                {touched.description && errors.description ? (
+                  <div className="error-message">{errors.description}</div>
+                ) : null}
               </Form.Group>
 
-              <Form.Group as={Col} controlId="validationCustom06">
-                <Form.Label>To Time </Form.Label>
-
-                <DatePicker
-                  selected={toTime}
-                  name="toTime"
-                  onChange={(date) => setToTime(date)}
-                  showTimeSelect
-                  showTimeSelectOnly
-                  timeIntervals={15}
-                  timeCaption="Time"
-                  dateFormat="h:mm aa"
-                  minDate={today}
-                  minTime={toMin}
-                  maxTime={myDate && new Date(myDate.setHours(23, 59))}
-                  required
+              <Form.Group controlId="validationCustom03">
+                <Form.Label>Image URL : </Form.Label>
+                <Form.Control
+                  type="text"
+                  name="imageUrl"
+                  onChange={handleChange}
+                  value={values.imageUrl}
+                  placeholder="Enter image url here.."
+                  className={
+                    touched.imageUrl && errors.imageUrl ? "error" : null
+                  }
                 />
+
+                <Form.Text className="text-muted">
+                  {`You can give some image url for your post for an easy eye catch of the seekers or will be defaulted with site logo`}
+                </Form.Text>
+                {touched.imageUrl && errors.imageUrl ? (
+                  <div className="error-message">{errors.imageUrl}</div>
+                ) : null}
               </Form.Group>
-            </Form.Row>
-            <Form.Group className="mt-5">
-              <Button id="post" type="submit" disabled={isSubmitting}>
-                Submit Post
-              </Button>
-            </Form.Group>
-          </Form>
-        </div>
-      )}
-    </Formik>
+
+              <Form.Group>
+                <Col className="mt-2" md={{ span: 4, offset: 2 }}>
+                  {values.imageUrl && (
+                    <Image src={values.imageUrl} alt="preview" thumbnail />
+                  )}
+                </Col>
+              </Form.Group>
+
+              <Form.Row>
+                <Form.Group as={Col} controlId="validationCustom04">
+                  <Form.Label>Date </Form.Label>
+
+                  <DatePicker
+                    todayButton="Today"
+                    selected={myDate}
+                    onChange={(date) => setDate(date)}
+                    name="startDate"
+                    dateFormat="MM/dd/yyyy"
+                    minDate={today}
+                    required
+                  />
+                </Form.Group>
+
+                <Form.Group as={Col} controlId="validationCustom05">
+                  <Form.Label>From Time </Form.Label>
+
+                  <DatePicker
+                    selected={fromTime}
+                    onChange={(date) => setFromTime(date)}
+                    showTimeSelect
+                    showTimeSelectOnly
+                    timeIntervals={15}
+                    timeCaption="Time"
+                    dateFormat="h:mm aa"
+                    minDate={today}
+                    minTime={fromMin}
+                    maxTime={myDate && new Date(myDate.setHours(23, 59))}
+                    required
+                  />
+                </Form.Group>
+
+                <Form.Group as={Col} controlId="validationCustom06">
+                  <Form.Label>To Time </Form.Label>
+
+                  <DatePicker
+                    selected={toTime}
+                    name="toTime"
+                    onChange={(date) => setToTime(date)}
+                    showTimeSelect
+                    showTimeSelectOnly
+                    timeIntervals={15}
+                    timeCaption="Time"
+                    dateFormat="h:mm aa"
+                    minDate={today}
+                    minTime={toMin}
+                    maxTime={myDate && new Date(myDate.setHours(23, 59))}
+                    required
+                  />
+                </Form.Group>
+              </Form.Row>
+
+              <Form.Group className="mt-5">
+                <Button id="post" type="submit" disabled={isSubmitting}>
+                  Submit Post
+                </Button>
+              </Form.Group>
+            </Form>
+          </div>
+        )}
+      </Formik>
+    </div>
   );
 }

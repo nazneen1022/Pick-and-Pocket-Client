@@ -90,13 +90,13 @@ export default function Post(props) {
         </div>
       </div>
       <div>
-        {display ? (
+        {display && (
           <Email
             show={display}
             handleClose={() => setDisplay(false)}
             title={props.title}
           ></Email>
-        ) : null}
+        )}
       </div>
     </>
   );

@@ -87,13 +87,13 @@ export default function Post(props) {
       </Card.Body>
 
       <div>
-        {display ? (
+        {display && (
           <Email
             show={display}
             handleClose={() => setDisplay(false)}
             title={props.title}
           ></Email>
-        ) : null}
+        )}
       </div>
     </>
   );

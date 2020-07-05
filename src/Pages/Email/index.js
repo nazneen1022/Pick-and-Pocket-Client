@@ -19,7 +19,7 @@ export default function Email({ handleClose, show, title }) {
     <>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Send Email ({title})</Modal.Title>
+          <Modal.Title>Post title - {title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form.Group controlId="formBasicMessage">
@@ -29,7 +29,6 @@ export default function Email({ handleClose, show, title }) {
               rows="3"
               value={content}
               onChange={(event) => setContent(event.target.value)}
-              type="textarea"
               placeholder="Hey!! I am available to help you!!"
             />
           </Form.Group>
