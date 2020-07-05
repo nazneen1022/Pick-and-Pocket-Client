@@ -71,7 +71,7 @@ function App() {
       socket.connect();
     }
   };
-
+  console.log("handleSocketConnection:", handleSocketConnection);
   // subscribe to socket date event
   // const subscribeToDateEvent = (interval = 1000) => {
   //   socket.emit("subscribeToDateEvent", interval);
@@ -80,7 +80,7 @@ function App() {
   return (
     <>
       <Navigation newpost={post} />
-      <div style={{ textAlign: "center" }}>
+      {/* <div style={{ textAlign: "center" }}>
         <b>Subscription status : </b>{" "}
         {socketConnected ? "Subscribed" : "Unsubscribed"}
         <p>
@@ -94,14 +94,14 @@ function App() {
             value={socketConnected ? "Unsubscribe" : "Subscribe"}
             onClick={handleSocketConnection}
           />
-        </p>
-        {socketConnected && post && post.title ? (
-          <div style={{ marginTop: 20 }}>
-            <b>There is a new post titled : </b>
-            {post.title}
-          </div>
-        ) : null}
-      </div>
+        </p> */}
+      {socketConnected && post && post.title ? (
+        <div style={{ marginTop: 20 }}>
+          <b>There is a new post titled : </b>
+          {post.title}
+        </div>
+      ) : null}
+      {/* </div> */}
 
       <MessageBox />
       <Switch>

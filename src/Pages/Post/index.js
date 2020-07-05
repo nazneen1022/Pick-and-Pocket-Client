@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import moment from "moment";
 import { Card, Row, Col, Button } from "react-bootstrap";
 import Email from "../Email";
-import dummyImage from "../../Images/dummyImage.png";
+import dummyImage from "../../Images/dummyImage.jpg";
 import "./Post.css";
 
 function truncateString(str, num) {
@@ -33,14 +33,12 @@ export default function Post(props) {
       <Card.Body>
         <Row>
           <Col xs={3}>
-            <div style={{ textAlign: "center" }}>
-              <img
-                src={props.imageUrl ? props.imageUrl : dummyImage}
-                alt="postImage"
-                width="220px"
-                height="220px"
-              />
-            </div>
+            <img
+              src={props.imageUrl ? props.imageUrl : dummyImage}
+              alt="postImage"
+              width="220px"
+              height="220px"
+            />
           </Col>
           <Col xs={9}>
             <Card.Title>
@@ -53,35 +51,35 @@ export default function Post(props) {
                 </Col>
               </Row>
             </Card.Title>
+
             <Card.Text>
-              <p>
-                {moreText
-                  ? props.description
-                  : truncateString(props.description, 200)}
-              </p>
-              <div style={{ textAlign: "right" }}>
-                {props.description.length > 200 && (
-                  <button
-                    className="readMore"
-                    onClick={() => setMoreText(!moreText)}
-                  >
-                    Read {!moreText ? "more" : "less"}...
-                  </button>
-                )}
-              </div>
-              <p style={{ color: "#000080" }}>
-                <em>Required on : </em>
-                {startDate}
-                {` ${moment(props.startTime).format("HH:mm")}
-                - ${moment(props.endTime).format("HH:mm")}`}
-              </p>
-              <p>
-                <Button>{props.button1Text}</Button>
-                <Button onClick={() => setDisplay(true)}>
-                  {props.button2Text}
-                </Button>
-              </p>
+              {moreText
+                ? props.description
+                : truncateString(props.description, 200)}
             </Card.Text>
+            <div style={{ textAlign: "right" }}>
+              {props.description.length > 200 && (
+                <button
+                  className="readMore"
+                  onClick={() => setMoreText(!moreText)}
+                >
+                  Read {!moreText ? "more" : "less"}...
+                </button>
+              )}
+            </div>
+
+            <div style={{ color: "#000080" }}>
+              <em>Required on : </em>
+              {startDate}
+              {` ${moment(props.startTime).format("HH:mm")}
+                - ${moment(props.endTime).format("HH:mm")}`}
+              <br />
+              <br />
+              <Button>{props.button1Text}</Button>
+              <Button onClick={() => setDisplay(true)}>
+                {props.button2Text}
+              </Button>
+            </div>
           </Col>
         </Row>
       </Card.Body>

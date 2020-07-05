@@ -49,7 +49,7 @@ export default function Pick() {
           {sortedPosts &&
             sortedPosts.map((post) => {
               return (
-                <>
+                <div key={post.id}>
                   <br />
                   <Card key={post.id}>
                     <Post
@@ -59,11 +59,12 @@ export default function Pick() {
                       user={loginUser}
                     />
                   </Card>
-                </>
+                </div>
               );
             })}
           <br />
           <Link to="/">{`<< Back to Home`}</Link>
+          <br />
           <br />
         </Container>
       </div>

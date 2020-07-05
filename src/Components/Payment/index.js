@@ -15,7 +15,6 @@ export default function Payment(props) {
   const dispatch = useDispatch();
 
   const [disabled, setDisabled] = useState(false);
-  const [show, setShow] = useState(true);
 
   useEffect(() => {
     if (props.status === "Completed") {
@@ -28,7 +27,6 @@ export default function Payment(props) {
   const handleConfirmWork = () => {
     dispatch(confirmWork(props.id));
     setDisabled(true);
-    setShow(false);
   };
 
   const title = props.title;
@@ -60,7 +58,7 @@ export default function Payment(props) {
   return (
     <div>
       {props.status !== "Completed" && (
-        <Button variant="info" onClick={handleConfirmWork} show={show}>
+        <Button variant="info" onClick={handleConfirmWork} disabled={disabled}>
           Confirm Work Done!!
         </Button>
       )}

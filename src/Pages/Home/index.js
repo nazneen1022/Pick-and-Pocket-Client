@@ -40,14 +40,22 @@ export default function Home() {
         <br />
         <br />
         <br />
-        <div className="border">
+        <div>
           <Link to={linkTo}>
             <Button
               style={{
                 borderRadius: "20px",
                 backgroundColor: "purple",
               }}
-            >{`Look Now`}</Button>
+            >{`Pickup some work`}</Button>
+          </Link>
+          <Link to={token ? "/PostWork" : "/Login"}>
+            <Button
+              style={{
+                borderRadius: "20px",
+                backgroundColor: "purple",
+              }}
+            >{`Post New Work`}</Button>
           </Link>
         </div>
       </Jumbotron>

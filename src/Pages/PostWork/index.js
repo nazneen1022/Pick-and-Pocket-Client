@@ -123,7 +123,7 @@ export default function PostWork() {
           title: "",
           description: "",
           imageUrl:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSMut25Aw2iMirLtCWnKDyIx98svQ_x9tq5ow&usqp=CAU",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTskMG2Q9rTeeebcbACMvrAd-wgWwr0P-uIDg&usqp=CAU",
           myDate: today,
         }}
         validationSchema={validationSchema}
@@ -171,7 +171,7 @@ export default function PostWork() {
                   name="title"
                   type="text"
                   placeholder="Enter title.."
-                  className={touched.title && errors.title ? "error" : null}
+                  className={touched.title && errors.title && "error"}
                 />
                 {touched.title && errors.title ? (
                   <div className="error-message">{errors.title}</div>
@@ -189,7 +189,7 @@ export default function PostWork() {
                   type="text"
                   placeholder="Enter some description here.."
                   className={
-                    touched.description && errors.description ? "error" : null
+                    touched.description && errors.description && "error"
                   }
                 />
                 {touched.description && errors.description ? (
@@ -205,13 +205,11 @@ export default function PostWork() {
                   onChange={handleChange}
                   value={values.imageUrl}
                   placeholder="Enter image url here.."
-                  className={
-                    touched.imageUrl && errors.imageUrl ? "error" : null
-                  }
+                  className={touched.imageUrl && errors.imageUrl && "error"}
                 />
 
                 <Form.Text className="text-muted">
-                  {`You can give some image url for your post for an easy eye catch of the seekers or will be defaulted with site logo`}
+                  {`You can give some image url for your post for an easy eye catch of the seekers or will be defaulted with below image`}
                 </Form.Text>
                 {touched.imageUrl && errors.imageUrl ? (
                   <div className="error-message">{errors.imageUrl}</div>
@@ -278,13 +276,17 @@ export default function PostWork() {
                   />
                 </Form.Group>
               </Form.Row>
-
-              <Form.Group className="mt-5">
-                <Button id="post" type="submit" disabled={isSubmitting}>
-                  Submit Post
-                </Button>
-              </Form.Group>
+              <br />
+              <Button
+                variant="dark"
+                id="post"
+                type="submit"
+                disabled={isSubmitting}
+              >
+                Submit Post
+              </Button>
             </Form>
+            <br />
           </div>
         )}
       </Formik>
