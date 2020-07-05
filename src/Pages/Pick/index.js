@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 
@@ -8,7 +9,7 @@ import { selectUser } from "../../store/user/selectors";
 import { selectPosts } from "../../store/post/selectors";
 
 import Post from "../Post";
-import "../Post/Post.css";
+import "./Pick.css";
 
 export default function Pick() {
   const allPosts = useSelector(selectPosts);
@@ -39,21 +40,34 @@ export default function Pick() {
   return (
     <>
       <div className="myPost">
+        <br />
         <Container>
+          <h3>Short-time Work Posts Requests</h3>
+          <div style={{ textAlign: "right" }}>
+            <Link to="/PostWork">{`Create New Post`}</Link>
+          </div>
           {sortedPosts &&
             sortedPosts.map((post) => {
               return (
                 <>
+                  <br />
+
                   <Card key={post.id}>
                     <Post
                       {...post}
                       button1Text={" Location "}
                       button2Text={" Email "}
+                      user={loginUser}
                     />
                   </Card>
                 </>
               );
             })}
+          <br />
+
+          <Link to="/">{`<< Back to Home`}</Link>
+
+          <br />
         </Container>
       </div>
     </>

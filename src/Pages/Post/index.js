@@ -42,13 +42,14 @@ export default function Post(props) {
               />
             </div>
           </Col>
-          <Col xs={7}>
+          <Col xs={9}>
             <Card.Title>
               <Row>
                 <Col>{props.title} </Col>
                 <Col style={{ textAlign: "right", fontSize: "14px" }}>
-                  Posted :
-                  {diffDays === 0 ? ` Today` : ` ${diffDays} day(s) ago`}
+                  {`Posted :
+                  ${diffDays === 0 ? ` Today` : ` ${diffDays} day(s) ago`}
+                    by ${props.user.firstName}`}
                 </Col>
               </Row>
             </Card.Title>
@@ -56,10 +57,10 @@ export default function Post(props) {
               <p>
                 {moreText
                   ? props.description
-                  : truncateString(props.description, 150)}
+                  : truncateString(props.description, 200)}
               </p>
               <div style={{ textAlign: "right" }}>
-                {props.description.length > 150 && (
+                {props.description.length > 200 && (
                   <button
                     className="readMore"
                     onClick={() => setMoreText(!moreText)}
@@ -68,7 +69,7 @@ export default function Post(props) {
                   </button>
                 )}
               </div>
-              <p style={{ color: "#4d0026" }}>
+              <p style={{ color: "#000080" }}>
                 <em>Required on : </em>
                 {startDate}
                 {` ${moment(props.startTime).format("HH:mm")}
