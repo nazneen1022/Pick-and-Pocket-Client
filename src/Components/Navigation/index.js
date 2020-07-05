@@ -53,7 +53,7 @@ export default function Navigation(props) {
           {token ? (
             <>
               <NavbarItem path="/PickWork" linkText="Pick" />
-              <NavbarItem path="/MyPosts" linkText="My Posts" />
+              <NavbarItem path="/MyPosts" linkText="My Profile" />
               <NavbarItem path="/PostWork" linkText="Post New" />
               {/* <NavbarItem path="/GiveFeedback" linkText="Give Feedback" /> */}
             </>

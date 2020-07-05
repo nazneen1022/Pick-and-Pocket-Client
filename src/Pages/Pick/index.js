@@ -42,7 +42,7 @@ export default function Pick() {
       <div className="myPost">
         <br />
         <Container>
-          <h3>Short-time Work Posts Requests</h3>
+          <h3>{`Short-time Work Posts Requests`}</h3>
           <div style={{ textAlign: "right" }}>
             <Link to="/PostWork">{`Create New Post`}</Link>
           </div>
@@ -51,7 +51,6 @@ export default function Pick() {
               return (
                 <>
                   <br />
-
                   <Card key={post.id}>
                     <Post
                       {...post}
@@ -64,9 +63,7 @@ export default function Pick() {
               );
             })}
           <br />
-
           <Link to="/">{`<< Back to Home`}</Link>
-
           <br />
         </Container>
       </div>

@@ -15,6 +15,7 @@ export default function Payment(props) {
   const dispatch = useDispatch();
 
   const [disabled, setDisabled] = useState(false);
+  const [show, setShow] = useState(true);
 
   useEffect(() => {
     if (props.status === "Completed") {
@@ -27,6 +28,7 @@ export default function Payment(props) {
   const handleConfirmWork = () => {
     dispatch(confirmWork(props.id));
     setDisabled(true);
+    setShow(false);
   };
 
   const title = props.title;
@@ -57,12 +59,12 @@ export default function Payment(props) {
 
   return (
     <div>
-      <Button>Edit Post</Button>
-      <span>{"                                "}</span>
-      <Button variant="success" onClick={handleConfirmWork} disabled={disabled}>
-        Confirm Work Done!!
-      </Button>
-      <span>{"                                "}</span>
+      {props.status !== "Completed" && (
+        <Button variant="info" onClick={handleConfirmWork} show={show}>
+          Confirm Work Done!!
+        </Button>
+      )}
+
       {disabled ? (
         <StripeCheckout
           stripeKey="pk_test_51GviqtAzSgmuZzUjGponrT7cKLwvvf3NIaJprSCb3glOthFvEcTfGFoI3OAd6vKmPt2bLddwcb7HUIto69tMggXa00slcpNnG2"
@@ -71,11 +73,7 @@ export default function Payment(props) {
           amount={price * 100}
           currency="EUR"
         >
-          <style type="text/css">
-            {` .btn-pay { background-color: purple;  color: white;}`}
-          </style>
-
-          <Button type="submit" variant="pay">
+          <Button variant="dark" type="submit">
             Pay Now
           </Button>
         </StripeCheckout>
