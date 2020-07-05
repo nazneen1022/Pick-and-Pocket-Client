@@ -65,7 +65,7 @@ export default function Payment(props) {
 
       {disabled ? (
         <StripeCheckout
-          stripeKey="pk_test_51GviqtAzSgmuZzUjGponrT7cKLwvvf3NIaJprSCb3glOthFvEcTfGFoI3OAd6vKmPt2bLddwcb7HUIto69tMggXa00slcpNnG2"
+          stripeKey={process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY}
           token={handlePayment}
           name={props.title}
           amount={price * 100}
