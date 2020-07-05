@@ -57,25 +57,21 @@ export default function Payment(props) {
 
   return (
     <div>
-      <Button>Edit Post</Button>
-      <span>{"                                "}</span>
-      <Button variant="success" onClick={handleConfirmWork} disabled={disabled}>
-        Confirm Work Done!!
-      </Button>
-      <span>{"                                "}</span>
+      {props.status !== "Completed" && (
+        <Button variant="info" onClick={handleConfirmWork} disabled={disabled}>
+          Confirm Work Done!!
+        </Button>
+      )}
+
       {disabled ? (
         <StripeCheckout
-          stripeKey="pk_test_51GviqtAzSgmuZzUjGponrT7cKLwvvf3NIaJprSCb3glOthFvEcTfGFoI3OAd6vKmPt2bLddwcb7HUIto69tMggXa00slcpNnG2"
+          stripeKey={process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY}
           token={handlePayment}
           name={props.title}
           amount={price * 100}
           currency="EUR"
         >
-          <style type="text/css">
-            {` .btn-pay { background-color: purple;  color: white;}`}
-          </style>
-
-          <Button type="submit" variant="pay">
+          <Button variant="dark" type="submit">
             Pay Now
           </Button>
         </StripeCheckout>

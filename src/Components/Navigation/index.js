@@ -15,7 +15,7 @@ export default function Navigation(props) {
 
   useEffect(() => {
     const $bell = document.getElementById("notification");
-    console.log("props.newpost:", props.newpost);
+    //console.log("props.newpost:", props.newpost);
     if (props.newpost) {
       const count = Number($bell.getAttribute("data-count")) || 0;
 
@@ -44,7 +44,7 @@ export default function Navigation(props) {
           height="50"
           className="d-inline-block align-center"
         />
-        {` Pick and Pocket `}
+        {` Pick & Pocket `}
       </Navbar.Brand>
 
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -53,9 +53,7 @@ export default function Navigation(props) {
           {token ? (
             <>
               <NavbarItem path="/PickWork" linkText="Pick" />
-              <NavbarItem path="/MyPosts" linkText="My Posts" />
-              <NavbarItem path="/PostWork" linkText="Post New" />
-              {/* <NavbarItem path="/GiveFeedback" linkText="Give Feedback" /> */}
+              <NavbarItem path="/MyPosts" linkText="My Profile" />
             </>
           ) : null}
         </Nav>
