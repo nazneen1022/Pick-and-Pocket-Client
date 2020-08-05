@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
-import { Nav, Navbar } from "react-bootstrap";
+import { Nav, Navbar, Popover, OverlayTrigger } from "react-bootstrap";
 import NavbarItem from "./NavbarItem";
 import LoggedIn from "./LoggedIn";
 import LoggedOut from "./LoggedOut";
@@ -16,10 +16,11 @@ export default function Navigation(props) {
   useEffect(() => {
     const $bell = document.getElementById("notification");
     //console.log("props.newpost:", props.newpost);
-    if (props.newpost) {
-      const count = Number($bell.getAttribute("data-count")) || 0;
+    if (props.newpost && props.newpost.length > 0) {
+      //const count = Number($bell.getAttribute("data-count")) || 0;
 
-      $bell.setAttribute("data-count", count + 1);
+      //$bell.setAttribute("data-count", count + 1);
+      $bell.setAttribute("data-count", props.newpost.length);
       $bell.classList.add("show-count");
       $bell.classList.add("notify");
     }
@@ -27,6 +28,21 @@ export default function Navigation(props) {
       $bell.classList.remove("notify");
     });
   }, [props.newpost]);
+
+  const popover = (
+    <Popover id="popover-basic">
+      {props.newpost.map((post) => {
+        return (
+          <div key={post.id}>
+            <Popover.Title as="h3">{post.title}</Popover.Title>
+            <Popover.Content>
+              {post.description.slice(0, 30) + "..."}
+            </Popover.Content>
+          </div>
+        );
+      })}
+    </Popover>
+  );
 
   return (
     <Navbar
@@ -50,15 +66,20 @@ export default function Navigation(props) {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse>
         <Nav style={{ width: "100%" }} fill>
-          {token ? (
+          {token && (
             <>
               <NavbarItem path="/PickWork" linkText="Pick" />
               <NavbarItem path="/MyPosts" linkText="My Profile" />
             </>
-          ) : null}
+          )}
         </Nav>
       </Navbar.Collapse>
-      <div id="notification" className="notification"></div>
+
+      <div ref={useRef(null)}>
+        <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
+          <div id="notification" className="notification"></div>
+        </OverlayTrigger>
+      </div>
       {loginLogoutControls}
     </Navbar>
   );
