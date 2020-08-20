@@ -15,7 +15,7 @@
 }
 
 .btn {
-  cursos: pointer;
+  cursor: pointer;
   background-color: #ed657d;
   color: #f2f2f2;
   text-align: center;

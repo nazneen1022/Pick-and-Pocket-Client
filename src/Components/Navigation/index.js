@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Nav, Navbar, Popover, OverlayTrigger } from "react-bootstrap";
+import { Nav, Navbar, Popover, Overlay } from "react-bootstrap";
 import NavbarItem from "./NavbarItem";
 import LoggedIn from "./LoggedIn";
 import LoggedOut from "./LoggedOut";
@@ -10,15 +10,16 @@ import logo from "../../Images/logo.png";
 import "./Bell.css";
 
 export default function Navigation(props) {
+  const target = useRef(null);
+  const [show, setShow] = useState(false);
   const token = useSelector(selectToken);
   const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
-
+  const postsCount = props.newpost.length;
   useEffect(() => {
     const $bell = document.getElementById("notification");
     //console.log("props.newpost:", props.newpost);
     if (props.newpost && props.newpost.length > 0) {
       //const count = Number($bell.getAttribute("data-count")) || 0;
-
       //$bell.setAttribute("data-count", count + 1);
       $bell.setAttribute("data-count", props.newpost.length);
       $bell.classList.add("show-count");
@@ -29,20 +30,10 @@ export default function Navigation(props) {
     });
   }, [props.newpost]);
 
-  const popover = (
-    <Popover id="popover-basic">
-      {props.newpost.map((post) => {
-        return (
-          <div key={post.id}>
-            <Popover.Title as="h3">{post.title}</Popover.Title>
-            <Popover.Content>
-              {post.description.slice(0, 30) + "..."}
-            </Popover.Content>
-          </div>
-        );
-      })}
-    </Popover>
-  );
+  function display() {
+    setShow(!show);
+    document.getElementById("notification").classList.remove("show-count");
+  }
 
   return (
     <Navbar
@@ -74,12 +65,35 @@ export default function Navigation(props) {
           )}
         </Nav>
       </Navbar.Collapse>
+      {/* 
+      <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
+        <div id="notification" className="notification"></div>
+      </OverlayTrigger> */}
+      <div
+        ref={target}
+        id="notification"
+        className="notification"
+        onClick={() => display()}
+      ></div>
+      <Overlay target={target.current} show={show} placement="bottom">
+        <Popover id="popover-basic">
+          {postsCount ? (
+            props.newpost.map((post) => {
+              return (
+                <div key={post.id}>
+                  <Popover.Title as="h3">{post.title}</Popover.Title>
+                  <Popover.Content>
+                    {post.description.slice(0, 20) + "..."}
+                  </Popover.Content>
+                </div>
+              );
+            })
+          ) : (
+            <Popover.Title as="h3">{` No new notifications!! `}</Popover.Title>
+          )}
+        </Popover>
+      </Overlay>
 
-      <div ref={useRef(null)}>
-        <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
-          <div id="notification" className="notification"></div>
-        </OverlayTrigger>
-      </div>
       {loginLogoutControls}
     </Navbar>
   );
