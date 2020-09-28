@@ -20,7 +20,8 @@ function App() {
   const [socket, setSocket] = useState(null);
   const [socketConnected, setSocketConnected] = useState(false);
   //const [dt, setDt] = useState("");
-  const [post, setPost] = useState();
+  //const [post, setPost] = useState();
+  const [myArray, setMyArray] = useState([]);
 
   const dispatch = useDispatch();
 
@@ -30,12 +31,13 @@ function App() {
 
   // establish socket connection
   useEffect(() => {
-    // if (process.env.NODE_ENV !== "production") {
-    //   setSocket(io("http://localhost:4000"));
-    // } else {
-    //   setSocket(io("https://pick-and-pocket-server.herokuapp.com/"));
-    // }
-    setSocket(io("https://pick-and-pocket-server.herokuapp.com/"));
+    console.log("process.env.NODE_ENV :", process.env.NODE_ENV);
+    if (process.env.NODE_ENV !== "production") {
+      setSocket(io("http://localhost:4000"));
+    } else {
+      setSocket(io("https://pick-and-pocket-server.herokuapp.com/"));
+    }
+    //setSocket(io("https://pick-and-pocket-server.herokuapp.com/"));
     dispatch(getUserWithStoredToken());
   }, [dispatch]);
 
@@ -60,9 +62,10 @@ function App() {
     //   setDt(data);
     // });
     socket.on("getPost", (data) => {
-      setPost(data);
+      //setPost(data);
+      setMyArray([...myArray, data]);
     });
-  }, [socket]);
+  }, [socket, myArray]);
 
   // manage socket connection
   const handleSocketConnection = () => {
@@ -79,30 +82,7 @@ function App() {
 
   return (
     <>
-      <Navigation newpost={post} />
-      {/* <div style={{ textAlign: "center" }}>
-        <b>Subscription status : </b>{" "}
-        {socketConnected ? "Subscribed" : "Unsubscribed"}
-        <p>
-          <input
-            type="button"
-            style={{
-              color: "white",
-              borderRadius: "2px",
-              backgroundColor: "purple",
-            }}
-            value={socketConnected ? "Unsubscribe" : "Subscribe"}
-            onClick={handleSocketConnection}
-          />
-        </p> */}
-      {socketConnected && post && post.title ? (
-        <div style={{ marginTop: 20 }}>
-          <b>There is a new post titled : </b>
-          {post.title}
-        </div>
-      ) : null}
-      {/* </div> */}
-
+      <Navigation newpost={myArray} />
       <MessageBox />
       <Switch>
         <Route exact path="/" component={Home} />
