@@ -24,6 +24,7 @@ With Pick and Pocket, you will have a platform to post your work for sharing or 
 ![image](https://user-images.githubusercontent.com/63520290/86539723-38606200-beff-11ea-9cc1-58e8e1631327.png)
 ![image](https://user-images.githubusercontent.com/63520290/85929934-d11c2f80-b8b8-11ea-8b7c-3c1f535be5aa.png)
 ![image](https://user-images.githubusercontent.com/63520290/86539759-7493c280-beff-11ea-8384-9ba0f94d105e.png)
+![payment-feature](https://github.com/nazneen1022/Pick-and-Pocket-Client/blob/master/src/Images/Payment-Feature.gif)
 ![image](https://user-images.githubusercontent.com/63520290/86539867-5aa6af80-bf00-11ea-95cd-3947da76a0fe.png)
 
 ## Technology Used
