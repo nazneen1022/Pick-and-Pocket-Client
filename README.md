@@ -61,7 +61,7 @@ The goal of this project is to build a full-stack app using new technologies not
   - As a person who has some work, I have my own dashboard where I can see only my posts and accept the work done by others, so that I can track the work completion.
   - As a person looking for work I want to respond to the available short time job(s) so that I can help and make some money
   - As a person looking for work I want my client to be able to pay me, so I can easily get rewarded
-  - As a person looking for work I want to be able to receive a notification when a new job is posted, so that I can stay updated - Work in progress
+  - As a person looking for work I want to be able to receive a notification when a new job is posted, so that I can stay updated.
 
   This mvp is still a work in progress. Some features still need to be implemented and revised.
 
