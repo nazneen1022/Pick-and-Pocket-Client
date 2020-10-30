@@ -1,68 +1,98 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
 
-## Available Scripts
+Hi 👋, I am Nazneen, and this is my portfolio project which is a web application named 'Pick & Pocket'. For now, I have implemented a MVP with few important features and other features will be worked and added in future.
 
-In the project directory, you can run:
+👉 Click [here](https://pick-and-pocket.netlify.app/) for deployed Version v1.0 of this app.
 
-### `npm start`
+## 👩🏻‍💻 PICK & POCKET 💰
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This main idea of this project is about picking short-time works posted by the requesters, that can be accomplished within a day and pocket/earn real money besides helping them finish their work sooner. Also increase the communal bond 👫 of supporting eachother either with some work to share or earn some money in their free time.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+With Pick and Pocket, you will have a platform to post your work for sharing or pick up some short-time works posted by others to make some money in your free time.
 
-### `npm test`
+## Contents
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [App Demo](https://github.com/nazneen1022/Pick-and-Pocket-Client#App-Demo)
+- [Technology Used](https://github.com/nazneen1022/Pick-and-Pocket-Client#technology-used)
+- [Goals of this project](https://github.com/nazneen1022/Pick-and-Pocket-Client#goals-of-this-project)
+- [User stories & Wireframe](https://github.com/nazneen1022/Pick-and-Pocket-Client#user-stories-and-wireframe)
+- [Git Workflow](https://github.com/nazneen1022/Pick-and-Pocket-Client#git-workflow)
+- [Server Repo](https://github.com/nazneen1022/Pick-and-Pocket-server)
 
-### `npm run build`
+## App Demo
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Home1](https://user-images.githubusercontent.com/63520290/86539723-38606200-beff-11ea-9cc1-58e8e1631327.png)
+![Home2](https://user-images.githubusercontent.com/63520290/85929934-d11c2f80-b8b8-11ea-8b7c-3c1f535be5aa.png)
+![Email](https://user-images.githubusercontent.com/63520290/86539759-7493c280-beff-11ea-8384-9ba0f94d105e.png)
+![payment-feature](https://github.com/nazneen1022/Pick-and-Pocket-Client/blob/master/src/Images/Payment-Feature.gif)
+![New-Work-PostForm](https://user-images.githubusercontent.com/63520290/86539867-5aa6af80-bf00-11ea-95cd-3947da76a0fe.png)
+![push notifications-feature](https://github.com/nazneen1022/Pick-and-Pocket-Client/blob/master/src/Images/PushNotifications-feature.gif)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Technology Used
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [React](https://github.com/nazneen1022/Pick-and-Pocket-Client/blob/master/src/App.js)
+- [Redux](https://github.com/nazneen1022/Pick-and-Pocket-Client/tree/master/src/store)
+- [Nodemailer](https://github.com/nazneen1022/Pick-and-Pocket-server/blob/master/routers/sendMail.js) ⭐️
+- [Stripe](https://github.com/nazneen1022/Pick-and-Pocket-server/blob/master/routers/payment.js) ⭐️
+- [Socket io](https://github.com/nazneen1022/Pick-and-Pocket-server/blob/master/routers/post.js) ⭐️
+- [React Bootstrap](https://react-bootstrap.github.io/getting-started/introduction)
+- [Express](https://github.com/nazneen1022/Pick-and-Pocket-server/blob/master/index.js)
+  - [Rest API](https://github.com/nazneen1022/Pick-and-Pocket-server/blob/master/routers/payment.js)
+- [Sequelize](https://github.com/nazneen1022/Pick-and-Pocket-server/blob/master/models/post.js)
 
-### `npm run eject`
+⭐️ New technologies learned during this project.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Goals of this project
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The goal of this project is to build a full-stack app using new technologies not gone through during the bootcamp. Learned and used these new tools by going through documentations.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Practice full-stack development
+- Usage of what we learned in the bootcamp
+- Practice learning new technology independently
+- Showcase development approach of using wireframes and user stories
+- Practice disciplined git usage like proper commits & branching.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## User stories and Wireframe
 
-## Learn More
+- User Stories
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  - As a person who has work that needs to get done I should be able to login to the app and I can post requesting a service, so I can get my work done by someone
+  - As a user, I would like to see a dashboard. In this dashboard, I am able to see other users’ posts ao that I can see available works
+  - As a person who has some work, I have my own dashboard where I can see only my posts and accept the work done by others, so that I can track the work completion.
+  - As a person looking for work I want to respond to the available short time job(s) so that I can help and make some money
+  - As a person looking for work I want my client to be able to pay me, so I can easily get rewarded
+  - As a person looking for work I want to be able to receive a notification when a new job is posted, so that I can stay updated.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  This mvp is still a work in progress. Some features still need to be implemented and revised.
 
-### Code Splitting
+- Wireframe
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+  - [Pick & Pocket Wireframe](https://github.com/nazneen1022/Pick-and-Pocket-Client/blob/development/src/Pick-and-Pocket%20WireFrame.pdf)
 
-### Analyzing the Bundle Size
+## Git Workflow
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+In this project I try to use:
 
-### Making a Progressive Web App
+- Good commit messages
+- Named branches
+- Pull requests with summaries
+- Used development branch without merging to the master all-time
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+👇 Click below links to view 👀 samples of pull requests
 
-### Advanced Configuration
+- [feat-push-notification](https://github.com/nazneen1022/Pick-and-Pocket-Client/pull/5)
+- [feat-payment](https://github.com/nazneen1022/Pick-and-Pocket-Client/pull/4)
+- [code review](https://github.com/nazneen1022/Pick-and-Pocket-Client/pull/12)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+## Server Repo
 
-### Deployment
+- The server side of this project is an Express server connected to a Sequelize database. [Click here for more details](https://github.com/nazneen1022/Pick-and-Pocket-server)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+## How to Install this?
 
-### `npm run build` fails to minify
+- clone the app
+- cd into your project
+- Install dependencies using `npm install`
+- start development server using `npm run start`
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+❗️Note: I have used a `Stripe Checkout` for payment related feature, please create your own Stripe account and stripe publishable key 🗝 and add it to .env file using name REACT_APP_STRIPE_PUBLISHABLE_KEY = <YOUR_STRIPE_PUBLISHABLE_KEY>
